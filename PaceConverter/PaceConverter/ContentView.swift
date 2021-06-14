@@ -19,29 +19,19 @@ struct ContentView: View {
   var body: some View {
     NavigationView {
       Form {
-        makeUnitPickerSection(title: "Input Unit", binding: $inputUnit)
-        makeUnitPickerSection(title: "Output Unit", binding: $outputUnit)
+        makeUnitPickerSection("Input Unit", binding: $inputUnit)
+        makeUnitPickerSection("Output Unit", binding: $outputUnit)
 
         Section(header: Text("Input Value")) {
           GeometryReader { geometry in
             HStack {
-              Picker("Minutes", selection: $inputMinutes) {
-                ForEach(0..<20) {
-                  Text("\($0)")
-                }
-              }
-              .pickerStyle(WheelPickerStyle())
-              .frame(width: geometry.size.width / 2, height: 200, alignment: .center)
-              .clipped()
+              makeValuePicker("Minutes", maxValue: 20,
+                              width: geometry.size.width / 2, height: 200,
+                              binding: $inputMinutes)
 
-              Picker("Seconds", selection: $inputSeconds) {
-                ForEach(0..<60) {
-                  Text("\($0)")
-                }
-              }
-              .pickerStyle(WheelPickerStyle())
-              .frame(width: geometry.size.width / 2, height: 200, alignment: .center)
-              .clipped()
+              makeValuePicker("Seconds", maxValue: 60,
+                              width: geometry.size.width / 2, height: 200,
+                              binding: $inputSeconds)
             }
           }
           .frame(minHeight: 200)
@@ -55,7 +45,7 @@ struct ContentView: View {
     }
   }
 
-  fileprivate func makeUnitPickerSection(title: String, binding: Binding<Int>) -> some View {
+  fileprivate func makeUnitPickerSection(_ title: String, binding: Binding<Int>) -> some View {
     return Section(header: Text(title)) {
       Picker(title, selection: binding) {
         ForEach(0..<units.count) { index in
@@ -64,6 +54,17 @@ struct ContentView: View {
       }
       .pickerStyle(SegmentedPickerStyle())
     }
+  }
+
+  fileprivate func makeValuePicker(_ title: String, maxValue: Int, width: CGFloat, height: CGFloat, binding: Binding<Int>) -> some View {
+    return Picker(title, selection: binding) {
+      ForEach(0..<maxValue) {
+        Text("\($0)")
+      }
+    }
+    .pickerStyle(WheelPickerStyle())
+    .frame(width: width, height: height, alignment: .center)
+    .clipped()
   }
 
 }
