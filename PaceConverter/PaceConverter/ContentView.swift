@@ -38,7 +38,7 @@ struct ContentView: View {
         }
 
         Section(header: Text("Result")) {
-          Text("Not implemented")
+          Text("\(inputMinutes):\(inputSeconds, specifier: "%02d") \(units[inputUnit]) = -:-- \(units[outputUnit])")
         }
       }
       .navigationBarTitle("Pace Converter")
