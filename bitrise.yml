@@ -16,6 +16,7 @@ workflows:
     - cache-pull@2: {}
     - ios-auto-provision@1:
         inputs:
+        - generate_profiles: "yes"
         - distribution_type: "$BITRISE_EXPORT_METHOD"
     - script@1:
         title: Set BUILD_DATETIME
@@ -53,6 +54,7 @@ workflows:
     - cache-pull@2: {}
     - ios-auto-provision@1:
         inputs:
+        - generate_profiles: "yes"
         - distribution_type: "$BITRISE_EXPORT_METHOD"
     - swiftlint-extended@1:
         inputs:
