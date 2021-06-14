@@ -11,6 +11,7 @@
 		2F2AF86126778359004254AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AF86026778359004254AC /* ContentView.swift */; };
 		2F2AF8632677835B004254AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F2AF8622677835B004254AC /* Assets.xcassets */; };
 		2F2AF8662677835B004254AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F2AF8652677835B004254AC /* Preview Assets.xcassets */; };
+		2F2AF86F26779A74004254AC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AF86E26779A74004254AC /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		2F2AF8622677835B004254AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F2AF8652677835B004254AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2F2AF8672677835B004254AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F2AF86E26779A74004254AC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				2F2AF85E26778359004254AC /* PaceConverterApp.swift */,
 				2F2AF86026778359004254AC /* ContentView.swift */,
+				2F2AF86E26779A74004254AC /* Model.swift */,
 				2F2AF8622677835B004254AC /* Assets.xcassets */,
 				2F2AF8672677835B004254AC /* Info.plist */,
 				2F2AF8642677835B004254AC /* Preview Content */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F2AF86F26779A74004254AC /* Model.swift in Sources */,
 				2F2AF86126778359004254AC /* ContentView.swift in Sources */,
 				2F2AF85F26778359004254AC /* PaceConverterApp.swift in Sources */,
 			);

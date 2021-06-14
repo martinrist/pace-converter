@@ -14,7 +14,16 @@ struct ContentView: View {
   @State private var inputMinutes = 0
   @State private var inputSeconds = 0
 
-  let units = ["min/km", "min/mile"]
+  let units: [UnitPace] = [.minutesPerKilometer, .minutesPerMile]
+
+  var inputSymbol: String { units[inputUnit].symbol }
+  var outputSymbol: String { units[outputUnit].symbol }
+
+  var outputPace: (minutes: Int, seconds: Int) {
+    let inputPace = Measurement(minutes: inputMinutes, seconds: inputSeconds, unit: units[inputUnit])
+    let outputPace = inputPace.converted(to: units[outputUnit])
+    return outputPace.value
+  }
 
   var body: some View {
     NavigationView {
@@ -38,7 +47,10 @@ struct ContentView: View {
         }
 
         Section(header: Text("Result")) {
-          Text("\(inputMinutes):\(inputSeconds, specifier: "%02d") \(units[inputUnit]) = -:-- \(units[outputUnit])")
+          Text("""
+            \(inputMinutes):\(inputSeconds, specifier: "%02d") \(inputSymbol) = \
+            \(outputPace.minutes):\(outputPace.seconds, specifier: "%02d") \(outputSymbol)
+            """)
         }
       }
       .navigationBarTitle("Pace Converter")
@@ -49,7 +61,7 @@ struct ContentView: View {
     return Section(header: Text(title)) {
       Picker(title, selection: binding) {
         ForEach(0..<units.count) { index in
-          Text(units[index])
+          Text("\(units[index].symbol)")
         }
       }
       .pickerStyle(SegmentedPickerStyle())
