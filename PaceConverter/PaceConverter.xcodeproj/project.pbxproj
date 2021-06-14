@@ -12,7 +12,18 @@
 		2F2AF8632677835B004254AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F2AF8622677835B004254AC /* Assets.xcassets */; };
 		2F2AF8662677835B004254AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F2AF8652677835B004254AC /* Preview Assets.xcassets */; };
 		2F2AF86F26779A74004254AC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AF86E26779A74004254AC /* Model.swift */; };
+		2F2AF87F2677DEE1004254AC /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AF87E2677DEE1004254AC /* ModelTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2F2AF8792677DEB8004254AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F2AF85326778359004254AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F2AF85A26778359004254AC;
+			remoteInfo = PaceConverter;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2F2AF85B26778359004254AC /* PaceConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaceConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,10 +33,20 @@
 		2F2AF8652677835B004254AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2F2AF8672677835B004254AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F2AF86E26779A74004254AC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		2F2AF8742677DEB8004254AC /* PaceConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaceConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F2AF8782677DEB8004254AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F2AF87E2677DEE1004254AC /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2F2AF85826778359004254AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F2AF8712677DEB8004254AC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				2F2AF85D26778359004254AC /* PaceConverter */,
+				2F2AF8752677DEB8004254AC /* PaceConverterTests */,
 				2F2AF85C26778359004254AC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				2F2AF85B26778359004254AC /* PaceConverter.app */,
+				2F2AF8742677DEB8004254AC /* PaceConverterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,6 +95,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		2F2AF8752677DEB8004254AC /* PaceConverterTests */ = {
+			isa = PBXGroup;
+			children = (
+				2F2AF8782677DEB8004254AC /* Info.plist */,
+				2F2AF87E2677DEE1004254AC /* ModelTests.swift */,
+			);
+			path = PaceConverterTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -92,6 +124,24 @@
 			productReference = 2F2AF85B26778359004254AC /* PaceConverter.app */;
 			productType = "com.apple.product-type.application";
 		};
+		2F2AF8732677DEB8004254AC /* PaceConverterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F2AF87B2677DEB8004254AC /* Build configuration list for PBXNativeTarget "PaceConverterTests" */;
+			buildPhases = (
+				2F2AF8702677DEB8004254AC /* Sources */,
+				2F2AF8712677DEB8004254AC /* Frameworks */,
+				2F2AF8722677DEB8004254AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F2AF87A2677DEB8004254AC /* PBXTargetDependency */,
+			);
+			name = PaceConverterTests;
+			productName = PaceConverterTests;
+			productReference = 2F2AF8742677DEB8004254AC /* PaceConverterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -103,6 +153,10 @@
 				TargetAttributes = {
 					2F2AF85A26778359004254AC = {
 						CreatedOnToolsVersion = 12.5;
+					};
+					2F2AF8732677DEB8004254AC = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 2F2AF85A26778359004254AC;
 					};
 				};
 			};
@@ -120,6 +174,7 @@
 			projectRoot = "";
 			targets = (
 				2F2AF85A26778359004254AC /* PaceConverter */,
+				2F2AF8732677DEB8004254AC /* PaceConverterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -131,6 +186,13 @@
 			files = (
 				2F2AF8662677835B004254AC /* Preview Assets.xcassets in Resources */,
 				2F2AF8632677835B004254AC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F2AF8722677DEB8004254AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,7 +209,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2F2AF8702677DEB8004254AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F2AF87F2677DEE1004254AC /* ModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2F2AF87A2677DEB8004254AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F2AF85A26778359004254AC /* PaceConverter */;
+			targetProxy = 2F2AF8792677DEB8004254AC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2F2AF8682677835B004254AC /* Debug */ = {
@@ -310,6 +388,46 @@
 			};
 			name = Release;
 		};
+		2F2AF87C2677DEB8004254AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NRU5YEF35L;
+				INFOPLIST_FILE = PaceConverterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.martinrist.PaceConverterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PaceConverter.app/PaceConverter";
+			};
+			name = Debug;
+		};
+		2F2AF87D2677DEB8004254AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NRU5YEF35L;
+				INFOPLIST_FILE = PaceConverterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.martinrist.PaceConverterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PaceConverter.app/PaceConverter";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -327,6 +445,15 @@
 			buildConfigurations = (
 				2F2AF86B2677835B004254AC /* Debug */,
 				2F2AF86C2677835B004254AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F2AF87B2677DEB8004254AC /* Build configuration list for PBXNativeTarget "PaceConverterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F2AF87C2677DEB8004254AC /* Debug */,
+				2F2AF87D2677DEB8004254AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
