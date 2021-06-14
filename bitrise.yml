@@ -1,0 +1,79 @@
+---
+format_version: '8'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: ios
+trigger_map:
+- push_branch: main
+  workflow: deploy
+- pull_request_source_branch: "*"
+  workflow: pr-check
+workflows:
+  deploy:
+    steps:
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@4: {}
+    - cache-pull@2: {}
+    - ios-auto-provision@1:
+        inputs:
+        - distribution_type: "$BITRISE_EXPORT_METHOD"
+    - script@1:
+        title: Set BUILD_DATETIME
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+
+            envman add --key BUILD_DATETIME --value $(date +%Y%m%d%H%M)
+    - set-xcode-build-number@1:
+        inputs:
+        - build_version: "$BUILD_DATETIME.$BITRISE_BUILD_NUMBER"
+        - plist_path: "$INFO_PLIST_PATH"
+    - swiftlint-extended@1:
+        inputs:
+        - strict: 'yes'
+        - linting_path: "$BITRISE_SOURCE_DIR"
+    - xcode-test@2: {}
+    - xcode-archive@3:
+        inputs:
+        - project_path: "$BITRISE_PROJECT_PATH"
+        - scheme: "$BITRISE_SCHEME"
+        - export_method: "$BITRISE_EXPORT_METHOD"
+    - deploy-to-bitrise-io@1: {}
+    - cache-push@2: {}
+  pr-check:
+    steps:
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@4: {}
+    - cache-pull@2: {}
+    - ios-auto-provision@1:
+        inputs:
+        - distribution_type: "$BITRISE_EXPORT_METHOD"
+    - swiftlint-extended@1:
+        inputs:
+        - strict: 'yes'
+        - linting_path: "$BITRISE_SOURCE_DIR"
+    - xcode-test@2: {}
+    - deploy-to-bitrise-io@1:
+        inputs:
+        - notify_user_groups: developers
+    - cache-push@2: {}
+app:
+  envs:
+  - opts:
+      is_expand: false
+    BITRISE_PROJECT_PATH: PaceConverter/PaceConverter.xcodeproj
+  - opts:
+      is_expand: false
+    BITRISE_SCHEME: PaceConverter
+  - opts:
+      is_expand: false
+    BITRISE_EXPORT_METHOD: ad-hoc
+  - opts:
+      is_expand: false
+    INFO_PLIST_PATH: PaceConverter/PaceConverter/Info.plist
