@@ -5,7 +5,8 @@ minutes/km, minutes/mile etc).
 
 ## TODO
 
-- [ ] Add icon and tint colouring
+- [X] Add icon and tint colouring
+- [ ] Extract `makeUnitPickerSection` and `makeValuePicker` to views
 - [ ] Introduce a 'swap units' button
 - [ ] Add more units
 - [ ] Handle rounding errors when converting to same units (e.g. 5:01 min/km =
